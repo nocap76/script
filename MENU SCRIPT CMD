@@ -1,0 +1,38 @@
+@echo off
+REM ***********************************************************************************************
+REM PROGRAMMER.......: Rodrigo Estevens                                                           
+REM DATE.............: 17/10/2024
+REM DESCRIPTION......: Network script com cores dinâmicas
+REM ***********************************************************************************************
+
+:MENU
+cls
+echo -===================WELCOME===================-
+echo                - Network Script -
+echo           1.Mostrar Configuracoes de IP
+echo                2.Renew Ip Config
+echo                     3.Sair
+echo -=============================================-  
+
+set /p choice="Escolha uma opcao: "
+
+if %choice%==1 goto MostrarIP
+if %choice%==2 goto RENEW_IP_CONFIGURATIONS
+if %choice%==3 goto EXIT_SCRIPT
+goto MENU
+
+:MostrarIP
+cls
+ipconfig
+pause
+goto MENU
+
+:RENEW_IP_CONFIGURATIONS
+ipconfig /release
+pause
+goto MENU
+
+:EXIT_SCRIPT
+echo "Thanks! :)"
+timeout /t 2 >nul
+exit /b 0
